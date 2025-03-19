@@ -18,7 +18,7 @@ class Banco
     public function cadastrarBanco($nome_banco, $codigo_banco)
     {
         try {
-            $stmt = $this->pdo->prepare(" ");
+            $stmt = $this->pdo->prepare("INSERT INTO banco (nome_banco, codigo_banco) VALUES (?, ?) ");
             $stmt->execute([$nome_banco, $codigo_banco]);
             return true;
         } catch (PDOException $e) {
@@ -31,7 +31,7 @@ class Banco
     public function listarBancos()
     {
         try {
-            $stmt = $this->pdo->query(" ");
+            $stmt = $this->pdo->query("SELECT * FROM banco ");
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             echo "Erro ao listar bancos: " . $e->getMessage();
@@ -43,7 +43,7 @@ class Banco
     public function buscarBancoPorId($id_banco)
     {
         try {
-            $stmt = $this->pdo->prepare(" ");
+            $stmt = $this->pdo->prepare();
             $stmt->execute([$id_banco]);
             return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
@@ -56,7 +56,7 @@ class Banco
     public function atualizarBanco($id_banco, $nome_banco, $codigo_banco)
     {
         try {
-            $stmt = $this->pdo->prepare(" ");
+            $stmt = $this->pdo->prepare();
             $stmt->execute([$nome_banco, $codigo_banco, $id_banco]);
             return true;
         } catch (PDOException $e) {
@@ -69,7 +69,7 @@ class Banco
     public function excluirBanco($id_banco)
     {
         try {
-            $stmt = $this->pdo->prepare(" ");
+            $stmt = $this->pdo->prepare("DELETE FROM banco WHERE id_banco = ? ");
             $stmt->execute([$id_banco]);
             return true;
         } catch (PDOException $e) {

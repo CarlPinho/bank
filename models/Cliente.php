@@ -15,7 +15,7 @@ class Cliente
     public function cadastrarCliente($nome, $email, $cpf, $telefone)
     {
         try {
-            $stmt = $this->pdo->prepare(" ");
+            $stmt = $this->pdo->prepare("INSERT INTO clientes (nome, email, cpf, telefone) VALUES (?, ?, ?, ?) ");
             $stmt->execute([$nome, $email, $cpf, $telefone]);
             return true;
         } catch (PDOException $e) {
