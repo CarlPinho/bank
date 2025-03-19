@@ -1,0 +1,16 @@
+banco_digital/
+├── assets/
+├── config/
+├── controllers/
+│   ├── BancoController.php
+│   └── ClienteController.php
+├── models/
+│   ├── Banco.php
+│   └── Cliente.php
+├── templates/
+│   ├── cadastro_banco.php
+│   ├── consulta_bancos.php
+│   ├── cadastro_cliente.php
+│   └── consulta_clientes.php
+├── index.php
+└── README.md
